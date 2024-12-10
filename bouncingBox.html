@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bouncingBox</title>
+    <style>
+        div {
+            background-color: rgb(124, 0, 182);
+            width: 6000px;
+            height: 600px;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id1">
+    </div>
+</body>
+<script>
+    var X = 100
+    var Y = 100
+    var speedX = +5
+    var speedY = +5
+    function moveBox() {
+        //increase box position
+        //box change direction if hit end of page
+
+        document.getElementById("id1").style.left = X + "px"
+        document.getElementById("id1").style.top = Y + "px"
+        X = X + speedX
+        if (X >= 1590) {
+            speedX = -5
+        }
+        if (X <= 20) {
+            speedX = +5
+
+        }
+        Y = Y + speedY
+        if (Y >= 1590) {
+            speedY = -5
+        }
+        if (Y <= 20) {
+            speedY = +5
+
+        }
+    }
+    setInterval(moveBox, 10)
+
+    function speedUp() {
+        //change speed when click 
+        if (speedX >= 0) {
+            speedX = speedX + 5
+        }
+        if (speedX < 0) {
+            speedX = speedX - 5
+        }
+    }
+
+    document.getElementById("id1").addEventListener("click", speedUp)
+</script>
+
+</html>
